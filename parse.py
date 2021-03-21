@@ -1,5 +1,12 @@
 def parse(query: str) -> dict:
-    return {}
+    res = {}
+    if '?' in query:
+        query = query.split('?')[1]
+        for i in query.split('&'):
+            if '=' in i:
+                i = i.split('=')
+                res[i[0]] = i[1]
+    return res
 
 
 if __name__ == '__main__':
